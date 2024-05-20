@@ -1,0 +1,11 @@
+body{
+  background-color: #fffef5;
+}
+
+*{
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+#qna, #result {
+    display: none;
+}
