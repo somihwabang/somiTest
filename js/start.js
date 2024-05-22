@@ -152,6 +152,145 @@ function addAnswer(answerText, qIdx, idx) {
     }, false);
 }
 
+// function goNext() {
+//     if (currentQuestionIndex >= data[currentQuestionSet].length) {
+//         goResult();
+//         return;
+//     }
+
+//     var q = document.querySelector('.qBox');
+//     q.innerHTML = data[currentQuestionSet][currentQuestionIndex].question;
+//     document.querySelector('.answerBox').innerHTML = ""; // Clear previous answers
+
+//     let options = data[currentQuestionSet][currentQuestionIndex].options;
+//     if (currentQuestionSet === "humanitiesDetail" && currentQuestionIndex === 3) {
+//         // Filter options for id 10
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 3, option);
+//             return selectedOptions.humanitiesDetail.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "humanitiesDetail" && currentQuestionIndex === 4) {
+//         // Filter options for id 11 based on id 9 and id 10 selections
+//         const previousSelections = selectedOptions.humanitiesDetail.slice(-2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 4, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "social" && currentQuestionIndex === 4) {
+//         // Filter options for id 16 based on id 12 and id 13 selections
+//         const previousSelections = selectedOptions.social.slice(0, 2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 4, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "social" && currentQuestionIndex === 5) {
+//         // Filter options for id 17 based on id 14 and id 15 selections
+//         const previousSelections = selectedOptions.social.slice(2, 4);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 5, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "social" && currentQuestionIndex === 6) {
+//         // Filter options for id 18 based on id 16 and id 17 selections
+//         const previousSelections = selectedOptions.social.slice(4, 6);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 6, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "art" && currentQuestionIndex === 3) {
+//         // Filter options for id 22 based on id 19 and id 20 selections
+//         const previousSelections = selectedOptions.art.slice(0, 2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 3, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "art" && currentQuestionIndex === 4) {
+//         // Filter options for id 23 based on id 21 and id 22 selections
+//         const previousSelections = selectedOptions.art.slice(2, 4);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 4, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "natural" && currentQuestionIndex === 2) {
+//         // Filter options for id 26 based on id 24 and id 25 selections
+//         const previousSelections = selectedOptions.natural.slice(0, 2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 2, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "engineering" && currentQuestionIndex === 4) {
+//         // Filter options for id 31 based on id 27 and id 28 selections
+//         const previousSelections = selectedOptions.engineering.slice(0, 2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 4, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "engineering" && currentQuestionIndex === 5) {
+//         // Filter options for id 32 based on id 29 and id 30 selections
+//         const previousSelections = selectedOptions.engineering.slice(2, 4);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 5, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "engineering" && currentQuestionIndex === 6) {
+//         // Filter options for id 33 based on id 31 and id 32 selections
+//         const previousSelections = selectedOptions.engineering.slice(4, 6);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 6, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "medical" && currentQuestionIndex === 4) {
+//         // Filter options for id 38 based on id 34 and id 35 selections
+//         const previousSelections = selectedOptions.medical.slice(0, 2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 4, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "medical" && currentQuestionIndex === 5) {
+//         // Filter options for id 39 based on id 36 and id 37 selections
+//         const previousSelections = selectedOptions.medical.slice(2, 4);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 5, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "medical" && currentQuestionIndex === 6) {
+//         // Filter options for id 40 based on id 38 and id 39 selections
+//         const previousSelections = selectedOptions.medical.slice(4, 6);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 6, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "education" && currentQuestionIndex === 4) {
+//         // Filter options for id 45 based on id 41 and id 42 selections
+//         const previousSelections = selectedOptions.education.slice(0, 2);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 4, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "education" && currentQuestionIndex === 5) {
+//         // Filter options for id 46 based on id 43 and id 44 selections
+//         const previousSelections = selectedOptions.education.slice(2, 4);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 5, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     } else if (currentQuestionSet === "education" && currentQuestionIndex === 6) {
+//         // Filter options for id 47 based on id 45 and id 46 selections
+//         const previousSelections = selectedOptions.education.slice(4, 6);
+//         options = options.filter(option => {
+//             const nextValue = getNextValue(currentQuestionSet, 6, option);
+//             return previousSelections.includes(nextValue);
+//         });
+//     }
+
+//     for (let i in options) {
+//         addAnswer(options[i], currentQuestionIndex, i);
+//     }
+
+//     var count = document.querySelector('.count');
+//     count.innerHTML = `${currentQuestionIndex + 1} / ${data[currentQuestionSet].length}`;
+// }
+
 function goNext() {
     if (currentQuestionIndex >= data[currentQuestionSet].length) {
         goResult();
@@ -160,7 +299,46 @@ function goNext() {
 
     var q = document.querySelector('.qBox');
     q.innerHTML = data[currentQuestionSet][currentQuestionIndex].question;
-    document.querySelector('.answerBox').innerHTML = ""; // Clear previous answers
+
+    var answerBox = document.querySelector('.answerBox');
+    answerBox.innerHTML = ""; // 이전 답변 지우기
+
+    // 이전 이미지 컨테이너가 있으면 페이드 아웃 후 제거
+    var previousImgContainer = document.querySelector('.image-container');
+    if (previousImgContainer) {
+        // previousImgContainer.classList.add('fade-out');
+        // previousImgContainer.addEventListener('animationend', () => {
+            previousImgContainer.remove();
+            addNewImage();
+        // });
+    } else {
+        addNewImage();
+    }
+
+    function addNewImage() {
+        // 1부터 12 사이의 랜덤 숫자 생성
+        const randomImageNumber = Math.floor(Math.random() * 12) + 1;
+
+        // .qBox와 .answerBox 사이에 새로운 이미지 추가
+        var imgContainer = document.createElement('div');
+        imgContainer.classList.add('image-container', 'fade-in');
+        var questionImage = document.createElement('img');
+        questionImage.src = `./image/${randomImageNumber}.png`; // 랜덤 이미지 경로 설정
+        questionImage.alt = `Question Image ${randomImageNumber}`;
+        questionImage.className = 'img-fluid';
+
+		// 이미지 가운데
+		questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+		questionImage.style.margin = '0 auto'; // 가운데 정렬
+		
+        questionImage.style.maxWidth = '300px'; // 최대 너비 설정
+        questionImage.style.height = 'auto'; // 높이는 자동 조정
+
+        imgContainer.appendChild(questionImage);
+
+        // .qBox와 .answerBox 사이에 이미지 삽입
+        q.parentNode.insertBefore(imgContainer, answerBox);
+    }
 
     let options = data[currentQuestionSet][currentQuestionIndex].options;
     if (currentQuestionSet === "humanitiesDetail" && currentQuestionIndex === 3) {
@@ -290,6 +468,7 @@ function goNext() {
     var count = document.querySelector('.count');
     count.innerHTML = `${currentQuestionIndex + 1} / ${data[currentQuestionSet].length}`;
 }
+
 
 function begin() {
     main.style.WebkitAnimation = "fadeOut 1s";

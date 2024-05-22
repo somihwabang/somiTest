@@ -32,8 +32,12 @@
     }
 }
 
+.fade-in {
+	animation: fadeIn 0.5s forwards; /* 1초 동안 페이드 인 */
+}
+
 .fade-out {
-    animation: fadeOut 1s forwards; /* 1초 동안 페이드 아웃 */
+    animation: fadeOut 0s forwards; /* 1초 동안 페이드 아웃 */
 }
 
 
