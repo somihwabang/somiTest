@@ -33,14 +33,6 @@ function calResult() {
     return select.humanities >= select.science ? 'humanities' : 'science';
 }
 
-// function setResult() {
-//     const resultName = document.querySelector('.resultname');
-//     resultName.innerHTML = lastSelected;
-
-//     const resultDesc = document.querySelector('.resultDesc');
-//     resultDesc.innerHTML = `You are most suited for ${lastSelected} field.`;
-// }
-
 function setResult() {
     // 로딩 GIF 요소 추가
     const resultContainer = document.querySelector('#result');
