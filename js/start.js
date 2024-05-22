@@ -37,7 +37,7 @@ function setResult() {
     // 로딩 GIF 요소 추가
     const resultContainer = document.querySelector('#result');
     const loadingGif = document.createElement('img');
-    loadingGif.src = './image/loading.gif'; // 로딩 GIF 경로 설정
+    loadingGif.src = '../image/loading.gif'; // 로딩 GIF 경로 설정
     loadingGif.alt = 'Loading...';
     loadingGif.className = 'loading-gif img-fluid';
     resultContainer.appendChild(loadingGif);
