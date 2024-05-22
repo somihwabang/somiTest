@@ -7,8 +7,8 @@
   text-align: center;
   border-radius: 20px;
   font-weight: 600;
-  font-size: 25px;
-  width: 80%
+  font-size: 23px;
+  width: 90%
 }
 
 .answerList {
@@ -16,13 +16,13 @@
   background-color: #e8f8e6;
   border-radius: 20px;
   display: block;
-  width: 80%;
+  width: 90%;
   border: 0px;
-  font-size: 18px;
+  font-size: 17px;
   height: 100px;
   font-weight: bold;
   /* 글자 좌우 여백 */
-  padding: 0 35px;
+  padding: 0 17px;
   /* 글자 상하 여백 */
   line-height: 25px;
   /* 테두리 */
