@@ -33,13 +33,43 @@ function calResult() {
     return select.humanities >= select.science ? 'humanities' : 'science';
 }
 
-function setResult() {
-    const resultName = document.querySelector('.resultname');
-    resultName.innerHTML = lastSelected;
+// function setResult() {
+//     const resultName = document.querySelector('.resultname');
+//     resultName.innerHTML = lastSelected;
 
-    const resultDesc = document.querySelector('.resultDesc');
-    resultDesc.innerHTML = `You are most suited for ${lastSelected} field.`;
+//     const resultDesc = document.querySelector('.resultDesc');
+//     resultDesc.innerHTML = `You are most suited for ${lastSelected} field.`;
+// }
+
+function setResult() {
+    // 로딩 GIF 요소 추가
+    const resultContainer = document.querySelector('#result');
+    const loadingGif = document.createElement('img');
+    loadingGif.src = './image/loading.gif'; // 로딩 GIF 경로 설정
+    loadingGif.alt = 'Loading...';
+    loadingGif.className = 'loading-gif img-fluid';
+    resultContainer.appendChild(loadingGif);
+
+    // 결과를 설정하기 전에 잠시 대기 (예: 2초)
+    setTimeout(() => {
+        // 로딩 GIF 페이드 아웃
+        loadingGif.classList.add('fade-out');
+
+        // 애니메이션이 끝난 후 결과를 설정
+        loadingGif.addEventListener('animationend', () => {
+            // 로딩 GIF 숨기기
+            loadingGif.style.display = 'none';
+
+            // 결과 설정
+            const resultName = document.querySelector('.resultname');
+            resultName.innerHTML = lastSelected;
+
+            const resultDesc = document.querySelector('.resultDesc');
+            resultDesc.innerHTML = `You are most suited for ${lastSelected} field.`;
+        });
+    }, 2000); // 2초 대기 (필요에 따라 조정 가능)
 }
+
 
 function goResult() {
     qna.style.WebkitAnimation = "fadeOut 1s";

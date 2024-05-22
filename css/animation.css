@@ -32,6 +32,11 @@
     }
 }
 
+.fade-out {
+    animation: fadeOut 1s forwards; /* 1초 동안 페이드 아웃 */
+}
+
+
 .pop-in {
     animation: popIn 1s ease forwards;
 }
