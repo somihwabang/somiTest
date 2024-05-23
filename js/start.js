@@ -15,6 +15,7 @@ const selectedOptions = {
     medical: [],
     education: []
 };
+let previousRandomImageNumber = null;
 
 // 선택된 값을 기반으로 next 값을 가져오는 함수
 function getNextValue(currentSet, qIdx, selectedValue) {
@@ -40,6 +41,11 @@ function setResult() {
     loadingGif.src = '../image/loading.gif'; // 로딩 GIF 경로 설정
     loadingGif.alt = 'Loading...';
     loadingGif.className = 'loading-gif img-fluid';
+
+	// 로딩 GIF 가운데 정렬
+	loadingGif.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+	loadingGif.style.margin = '0 auto'; // 가운데 정렬
+
     resultContainer.appendChild(loadingGif);
 
     // 결과를 설정하기 전에 잠시 대기 (예: 2초)
@@ -65,12 +71,17 @@ function setResult() {
             resultImage.alt = lastSelected;
             resultImage.className = 'img-fluid';
 
+            resultImage.style.maxWidth = '300px';
+            resultImage.style.height = 'auto';
+            // 이미지 가운데
+            resultImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+            resultImage.style.margin = '0 auto'; // 가운데 정렬
+
             // 결과 이미지 삽입
             resultDesc.appendChild(resultImage);
         });
     }, 2000); // 2초 대기 (필요에 따라 조정 가능)
 }
-
 
 function goResult() {
     qna.style.WebkitAnimation = "fadeOut 1s";
@@ -173,26 +184,22 @@ function goNext() {
     var answerBox = document.querySelector('.answerBox');
     answerBox.innerHTML = ""; // 이전 답변 지우기
 
-    // 이전 이미지 컨테이너가 있으면 페이드 아웃 후 제거
+    // 이전 이미지 컨테이너가 있으면 제거
     var previousImgContainer = document.querySelector('.image-container');
     if (previousImgContainer) {
-            previousImgContainer.remove();
-            addNewImage();
+        previousImgContainer.remove();
+        addNewImage();
     } else {
         addNewImage();
     }
 
     function addNewImage() {
-        // 1부터 12 사이의 랜덤 숫자 생성
-        // const randomImageNumber = Math.floor(Math.random() * 12) + 1;
-		
-		// 1부터 12 사이의 랜덤 숫자 생성 하지만 이전 숫자와 중복되지 않도록
-		let randomImageNumber;
-		do {
-			randomImageNumber = Math.floor(Math.random() * 12) + 1;
-		}
-		while (randomImageNumber === previousImageNumber);
-		previousImageNumber = randomImageNumber;
+        let randomImageNumber;
+        do {
+            randomImageNumber = Math.floor(Math.random() * 12) + 1; // 1부터 12 사이의 랜덤 숫자 생성
+        } while (randomImageNumber === previousRandomImageNumber);
+
+        previousRandomImageNumber = randomImageNumber; // 현재 랜덤 숫자를 이전 숫자로 저장
 
         // .qBox와 .answerBox 사이에 새로운 이미지 추가
         var imgContainer = document.createElement('div');
@@ -202,9 +209,9 @@ function goNext() {
         questionImage.alt = `Question Image ${randomImageNumber}`;
         questionImage.className = 'img-fluid';
 
-		// 이미지 가운데
-		questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-		questionImage.style.margin = '0 auto'; // 가운데 정렬
+        // 이미지 가운데
+        questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+        questionImage.style.margin = '0 auto'; // 가운데 정렬
 
         questionImage.style.maxWidth = '300px'; // 최대 너비 설정
         questionImage.style.height = 'auto'; // 높이는 자동 조정
@@ -343,7 +350,6 @@ function goNext() {
     var count = document.querySelector('.count');
     count.innerHTML = `${currentQuestionIndex + 1} / ${data[currentQuestionSet].length}`;
 }
-
 
 function begin() {
     main.style.WebkitAnimation = "fadeOut 1s";
