@@ -67,7 +67,7 @@ function setResult() {
 
             // 결과 이미지 추가
             const resultImage = document.createElement('img');
-            resultImage.src = `../resultImages/${lastSelected}.png`; // 결과 이미지 경로 설정
+            resultImage.src = `../image/results/${lastSelected}.png`; // 결과 이미지 경로 설정
             resultImage.alt = lastSelected;
             resultImage.className = 'img-fluid';
 
