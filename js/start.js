@@ -34,72 +34,6 @@ function calResult() {
     return select.humanities >= select.science ? 'humanities' : 'science';
 }
 
-// function setResult() {
-//     // 로딩 GIF 요소 추가
-//     const resultContainer = document.querySelector('#result');
-//     const loadingGif = document.createElement('img');
-//     loadingGif.src = '../image/loading.gif'; // 로딩 GIF 경로 설정
-//     loadingGif.alt = 'Loading...';
-//     loadingGif.className = 'loading-gif img-fluid';
-
-// 	// 로딩 GIF 가운데 정렬
-// 	loadingGif.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-// 	loadingGif.style.margin = '0 auto'; // 가운데 정렬
-
-//     resultContainer.appendChild(loadingGif);
-
-//     // 결과를 설정하기 전에 잠시 대기 (예: 2초)
-//     setTimeout(() => {
-//         // 로딩 GIF 페이드 아웃
-//         loadingGif.classList.add('fade-out');
-
-//         // 애니메이션이 끝난 후 결과를 설정
-//         loadingGif.addEventListener('animationend', () => {
-//             // 로딩 GIF 숨기기
-//             loadingGif.style.display = 'none';
-
-//             // 결과 설정
-//             const resultName = document.querySelector('.resultname');
-//             resultName.innerHTML = lastSelected;
-
-//             const resultDesc = document.querySelector('.resultDesc');
-//             resultDesc.innerHTML = ''; // 기존 텍스트 지우기
-
-//             // 결과 이미지 추가
-//             const resultImage = document.createElement('img');
-//             resultImage.src = `../image/results/${lastSelected}.png`; // 결과 이미지 경로 설정
-//             resultImage.alt = lastSelected;
-//             resultImage.className = 'img-fluid';
-
-//             resultImage.style.maxWidth = '300px';
-//             resultImage.style.height = 'auto';
-//             // 이미지 가운데
-//             resultImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-//             resultImage.style.margin = '0 auto'; // 가운데 정렬
-
-//             // 결과 이미지 삽입
-//             resultDesc.appendChild(resultImage);
-// 			// <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true" width="370" height="1100" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe> 삽입
-// 			const resultForm = document.createElement('iframe');
-// 			resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
-// 			resultForm.width = '370';
-// 			resultForm.height = '1100';
-// 			resultForm.frameborder = '0';
-// 			resultForm.marginheight = '0';
-// 			resultForm.marginwidth = '0';
-// 			resultForm.innerHTML = '로드 중…';
-
-// 			// 폼 가운데 정렬
-// 			resultForm.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-// 			resultForm.style.margin = '0 auto'; // 가운데 정렬
-
-// 			// 폼 삽입
-// 			resultDesc.appendChild(resultForm);
-
-//         });
-//     }, 2000); // 2초 대기 (필요에 따라 조정 가능)
-// }
-
 function setResult() {
     // 로딩 GIF 요소 추가
     const resultContainer = document.querySelector('#result');
@@ -126,7 +60,15 @@ function setResult() {
 
             // 결과 설정
             const resultName = document.querySelector('.resultname');
+
+			// 결과 이름 설정
             resultName.innerHTML = lastSelected;
+			// resultName.innerHTML 글자 크기 조정 bootstrap class 추가
+			resultName.classList.add('display-4');
+			// resultName.innerHTML 가운데 정렬 bootstrap class 추가
+			resultName.classList.add('text-center');
+			
+			
 
             const resultDesc = document.querySelector('.resultDesc');
             resultDesc.innerHTML = ''; // 기존 텍스트 지우기
