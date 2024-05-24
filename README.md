@@ -1,1 +1,1 @@
-# [somihwabang.kr](www.somihwabang.kr)
+# [somihwabang.kr](http://www.somihwabang.kr)
