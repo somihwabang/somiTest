@@ -88,6 +88,12 @@ function setResult() {
 			resultForm.marginheight = '0';
 			resultForm.marginwidth = '0';
 			resultForm.innerHTML = '로드 중…';
+
+			// 폼 가운데 정렬
+			resultForm.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+			resultForm.style.margin = '0 auto'; // 가운데 정렬
+
+			// 폼 삽입
 			resultDesc.appendChild(resultForm);
 
         });
