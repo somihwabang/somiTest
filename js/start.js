@@ -79,6 +79,17 @@ function setResult() {
 
             // 결과 이미지 삽입
             resultDesc.appendChild(resultImage);
+			// <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true" width="370" height="1100" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe> 삽입
+			const resultForm = document.createElement('iframe');
+			resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
+			resultForm.width = '370';
+			resultForm.height = '1100';
+			resultForm.frameborder = '0';
+			resultForm.marginheight = '0';
+			resultForm.marginwidth = '0';
+			resultForm.innerHTML = '로드 중…';
+			resultDesc.appendChild(resultForm);
+
         });
     }, 2000); // 2초 대기 (필요에 따라 조정 가능)
 }
