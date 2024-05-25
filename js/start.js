@@ -198,6 +198,16 @@ function addAnswer(answerText, qIdx, idx) {
     }, false);
 }
 
+function updateProgressBar() {
+    const progressBar = document.querySelector('.progress-bar');
+    const progressCat = document.querySelector('.progress-cat');
+    const totalQuestions = data[currentQuestionSet].length;
+    const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+
+    progressBar.style.width = `${progress}%`;
+    progressCat.style.left = `calc(${progress}% - 15px)`; // 고양이 이미지의 절반 너비만큼 보정
+}
+
 function goNext() {
     if (currentQuestionIndex >= data[currentQuestionSet].length) {
         goResult();
@@ -375,6 +385,8 @@ function goNext() {
 
     var count = document.querySelector('.count');
     count.innerHTML = `${currentQuestionIndex + 1} / ${data[currentQuestionSet].length}`;
+    
+    updateProgressBar(); // 프로그레스 바 업데이트
 }
 
 function begin() {
