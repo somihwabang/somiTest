@@ -92,7 +92,7 @@ function setResult() {
             const resultForm = document.createElement('iframe');
             resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
             resultForm.width = '370';
-            resultForm.height = '2000';
+            resultForm.height = '1600';
             resultForm.frameBorder = '0';
             resultForm.marginHeight = '0';
             resultForm.marginWidth = '0';
