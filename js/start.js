@@ -79,7 +79,7 @@ function setResult() {
             resultImage.alt = lastSelected;
             resultImage.className = 'img-fluid';
 
-            resultImage.style.maxWidth = '300px';
+            resultImage.style.maxWidth = '280px';
             resultImage.style.height = 'auto';
             // 이미지 가운데
             resultImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
