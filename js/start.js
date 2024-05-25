@@ -201,8 +201,18 @@ function addAnswer(answerText, qIdx, idx) {
 function updateProgressBar() {
     const progressBar = document.querySelector('.progress-bar');
     const progressCat = document.querySelector('.progress-cat');
-    const totalQuestions = data[currentQuestionSet].length;
-    const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+
+	if (currentQuestionSet == "commonQuestions") {
+		totalQuestions = 9;
+		progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+	}
+	else if (currentQuestionSet == "humanitiesCommon" || currentQuestionSet == "scienceCommon") {
+		progress = 50;
+	}
+	else {
+		totalQuestions = data[currentQuestionSet].length + 5;
+		progress = ((currentQuestionIndex + 1) / totalQuestions) * 100 + 50;
+	}
 
     progressBar.style.width = `${progress}%`;
     progressCat.style.left = `calc(${progress}% - 15px)`; // 고양이 이미지의 절반 너비만큼 보정
