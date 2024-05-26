@@ -43,7 +43,7 @@ function setResult() {
     loadingGif.className = 'loading-gif img-fluid';
 
 	// 로딩 GIF 크기 조정
-	loadingGif.style.maxWidth = '380px'; // 최대 너비 설정
+	loadingGif.style.maxWidth = '350px'; // 최대 너비 설정
 	loadingGif.style.height = 'auto'; // 높이는 자동 조정
 
     // 로딩 GIF 가운데 정렬
