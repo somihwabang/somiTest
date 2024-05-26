@@ -247,35 +247,37 @@ function goNext() {
         addNewImage();
     }
 
-    function addNewImage() {
-        let randomImageNumber;
-        do {
-            randomImageNumber = Math.floor(Math.random() * 12) + 1; // 1부터 12 사이의 랜덤 숫자 생성
-        } while (randomImageNumber === previousRandomImageNumber);
-
-        previousRandomImageNumber = randomImageNumber; // 현재 랜덤 숫자를 이전 숫자로 저장
-
-        // .qBox와 .answerBox 사이에 새로운 이미지 추가
-        var imgContainer = document.createElement('div');
-        imgContainer.classList.add('image-container', 'fade-in');
-        var questionImage = document.createElement('img');
-        questionImage.src = `./image/${randomImageNumber}.png`; // 랜덤 이미지 경로 설정
-        questionImage.alt = `Question Image ${randomImageNumber}`;
-        questionImage.className = 'img-fluid';
-
-        // 이미지 가운데
-        questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-        questionImage.style.margin = '0 auto'; // 가운데 정렬
-
-        questionImage.style.maxWidth = '300px'; // 최대 너비 설정
-        questionImage.style.height = 'auto'; // 높이는 자동 조정
-
-        imgContainer.appendChild(questionImage);
-
-        // .qBox와 .answerBox 사이에 이미지 삽입
-        q.parentNode.insertBefore(imgContainer, answerBox);
-    }
-
+	function addNewImage() {
+		let randomImageNumber;
+		do {
+			randomImageNumber = Math.floor(Math.random() * 12) + 1; // 1부터 12 사이의 랜덤 숫자 생성
+		} while (randomImageNumber === previousRandomImageNumber);
+	
+		previousRandomImageNumber = randomImageNumber; // 현재 랜덤 숫자를 이전 숫자로 저장
+	
+		// .qBox와 .answerBox 사이에 새로운 이미지 추가
+		var imgContainer = document.createElement('div');
+		imgContainer.classList.add('image-container', 'fade-in');
+		var questionImage = document.createElement('img');
+		questionImage.src = `./image/${randomImageNumber}.png`; // 랜덤 이미지 경로 설정
+		questionImage.alt = `Question Image ${randomImageNumber}`;
+		questionImage.className = 'img-fluid';
+	
+		// 이미지 가운데 정렬 및 크기 조정
+		questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+		questionImage.style.margin = '0 auto'; // 가운데 정렬
+		questionImage.style.maxWidth = '300px'; // 최대 너비 설정
+		questionImage.style.height = 'auto'; // 높이는 자동 조정
+		questionImage.style.maxHeight = '30vh'; // 높이는 뷰포트 높이의 20%로 제한
+	
+		imgContainer.appendChild(questionImage);
+	
+		// .qBox와 .answerBox 사이에 이미지 삽입
+		var qBox = document.querySelector('.qBox');
+		var answerBox = document.querySelector('.answerBox');
+		qBox.parentNode.insertBefore(imgContainer, answerBox);
+	}
+	
     let options = data[currentQuestionSet][currentQuestionIndex].options;
     if (currentQuestionSet === "humanitiesDetail" && currentQuestionIndex === 3) {
         // Filter options for id 10
