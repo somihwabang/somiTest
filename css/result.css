@@ -1,3 +1,10 @@
+/* 반응형 폰트 크기 지정 */
+.resultname {
+    font-family: 'Maplestory Bold';
+    white-space: nowrap; /* 항상 한 줄로 유지 */
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+    text-overflow: ellipsis; /* 넘치는 텍스트 생략 부호(...) 표시 */
+}
 
 @font-face {
     font-family: 'Maplestory Light';

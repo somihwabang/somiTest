@@ -420,3 +420,31 @@ function begin() {
         goNext();
     }, 450);
 }
+
+// fitText.js 파일로 저장하거나 <script> 태그 내에 포함
+function fitText(element, maxFontSize) {
+    const parentWidth = element.parentElement.clientWidth;
+    const textWidth = element.scrollWidth;
+
+    let fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+    if (textWidth > parentWidth) {
+        const ratio = parentWidth / textWidth;
+        fontSize = Math.min(fontSize * ratio, maxFontSize);
+        element.style.fontSize = `${fontSize}px`;
+    }
+}
+
+// 초기 실행 및 윈도우 리사이즈 이벤트에 맞춰 실행
+window.addEventListener('DOMContentLoaded', () => {
+    const resultNameElement = document.querySelector('.resultname');
+    if (resultNameElement) {
+        fitText(resultNameElement, 80); // 최대 폰트 크기 80px
+    }
+});
+
+window.addEventListener('resize', () => {
+    const resultNameElement = document.querySelector('.resultname');
+    if (resultNameElement) {
+        fitText(resultNameElement, 80); // 최대 폰트 크기 80px
+    }
+});
