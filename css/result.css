@@ -41,6 +41,9 @@ body {
     border-radius: 5px; /* 둥근 모서리 */
     transition: background-color 0.3s ease; /* 배경색 전환 효과 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+	font-family: 'BMJUA';
+	font-weight: 580;
+	width: 40%;
 }
 
 .retry-button:hover {
