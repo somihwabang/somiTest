@@ -16,10 +16,25 @@ window.addEventListener('DOMContentLoaded', () => {
     resultImage.alt = lastSelected;
     resultImage.className = 'img-fluid';
     resultImage.style.maxWidth = '80%'; // 최대 너비를 화면의 80%로 설정
+    resultImage.style.maxWidth = '400px'; // 너비 최대값을 px로 설정
     resultImage.style.height = 'auto';
     resultImage.style.display = 'block';
     resultImage.style.margin = '0 auto';
     resultImgContainer.appendChild(resultImage);
+
+    // 결과 설명 추가 (필요에 따라 텍스트를 설정하세요)
+    // resultDescElement.innerHTML = `여기에 ${resultType}에 대한 설명을 추가하세요.`;
+
+	// 다시하기 버튼 추가
+	const retryButton = document.createElement('button');
+	retryButton.innerHTML = '다시하기';
+	retryButton.className = 'btn btn-primary mt-3';
+	retryButton.style.display = 'block';
+	retryButton.style.margin = '20px auto'; // 가운데 정렬
+	retryButton.addEventListener('click', () => {
+		window.location.href = 'index.html'; // 테스트 다시 시작
+	});
+	resultDescElement.appendChild(retryButton);
 
     // Google Forms iframe 추가
     const resultForm = document.createElement('iframe');
