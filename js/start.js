@@ -95,7 +95,7 @@ function setResult() {
             // Google Forms iframe 추가
             const resultForm = document.createElement('iframe');
             resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
-            resultForm.width = '370';
+            resultForm.width = '350';
             resultForm.height = '1600';
             resultForm.frameBorder = '0';
             resultForm.marginHeight = '0';
