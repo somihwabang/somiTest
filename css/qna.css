@@ -3,15 +3,17 @@
 }
 
 .qBox {
+  font-family: 'BMJUA';
   background-color: transparent;
   text-align: center;
   border-radius: 20px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 23px;
   width: 90%
 }
 
 .answerList {
+  font-family: 'BMJUA';
   max-width: 425px;
   background-color: #e8f8e6;
   border-radius: 20px;
@@ -20,7 +22,7 @@
   border: 0px;
   font-size: 17px;
   height: 83px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color:black;
   /* 글자 좌우 여백 */
   padding: 1 17px;
@@ -76,4 +78,9 @@
 	.answerList {
 	  font-size: 14px; /* 작은 화면에서는 글꼴 크기 줄임 */
 	}
+}
+
+@font-face {
+    font-family: 'BMJUA';
+    src: url('../fonts/BMJUA_ttf.ttf') format('opentype');
 }

@@ -9,3 +9,8 @@
 p{
   font-size: 20px;
 }
+
+@font-face {
+    font-family: 'Maplestory Light';
+    src: url('../fonts/Maplestory OTF Light.otf') format('opentype');
+}
