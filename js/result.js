@@ -20,8 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
         resultImage.src = imageUrl;
         resultImage.alt = lastSelected;
         resultImage.className = 'img-fluid';
-        resultImage.style.maxWidth = '80%'; // Maximum width set to 80% of the container
-        resultImage.style.width = '99vw'; // Width set to 99vw
+        resultImage.style.maxWidth = '800px'; // Maximum width set to 80% of the container
+        resultImage.style.width = '80vw'; // Width set to 99vw
         resultImage.style.height = 'auto';
         resultImage.style.display = 'block';
         resultImage.style.margin = '0 auto';
@@ -36,15 +36,17 @@ window.addEventListener('DOMContentLoaded', () => {
         const resultContainer = document.createElement('div');
         resultContainer.className = 'result-container';
 
-        const descHeading = document.createElement('h2');
-        descHeading.innerText = `${selectedMajorInfo.major} 과는요`;
-        resultContainer.appendChild(descHeading);
-
+		const descHeading = document.createElement('h2');
+		descHeading.innerText = `${selectedMajorInfo.major} 는요`;
+		descHeading.style.fontSize = "3.5rem";
+		resultContainer.appendChild(descHeading);
+		
         const descParagraph = document.createElement('p');
         descParagraph.innerText = selectedMajorInfo.desc;
         resultContainer.appendChild(descParagraph);
 
         const learningHeading = document.createElement('h2');
+		learningHeading.style.fontSize = "3.5rem";
         learningHeading.innerText = '어떤 것을 배울까요?';
         resultContainer.appendChild(learningHeading);
 
