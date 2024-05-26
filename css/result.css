@@ -59,8 +59,8 @@ body {
     font-size: 2em; /* Font size */
     margin-top: 10px; /* Space above text */
 	/* 좌우 여백 최소화 */
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .result-container ul {
