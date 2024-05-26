@@ -1,6 +1,5 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
-const result = document.querySelector("#result");
 
 const select = { humanities: 0, science: 0, education: 0 };
 let currentQuestionIndex = 0;
@@ -34,97 +33,35 @@ function calResult() {
     return select.humanities >= select.science ? 'humanities' : 'science';
 }
 
-function setResult() {
+function showLoadingAndRedirect(resultType) {
+    // qna 내용을 숨기고 로딩 GIF만 표시
+    qna.innerHTML = '';
+
     // 로딩 GIF 요소 추가
-    const resultContainer = document.querySelector('#result');
     const loadingGif = document.createElement('img');
     loadingGif.src = '../image/loading.gif'; // 로딩 GIF 경로 설정
     loadingGif.alt = 'Loading...';
     loadingGif.className = 'loading-gif img-fluid';
 
-	// 로딩 GIF 크기 조정
-	loadingGif.style.maxWidth = '350px'; // 최대 너비 설정
-	loadingGif.style.height = 'auto'; // 높이는 자동 조정
+    // 로딩 GIF 크기 조정
+    loadingGif.style.maxWidth = '350px'; // 최대 너비 설정
+    loadingGif.style.height = 'auto'; // 높이는 자동 조정
 
     // 로딩 GIF 가운데 정렬
     loadingGif.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
     loadingGif.style.margin = '0 auto'; // 가운데 정렬
 
-    resultContainer.appendChild(loadingGif);
+    qna.appendChild(loadingGif);
 
     // 결과를 설정하기 전에 잠시 대기 (예: 2초)
     setTimeout(() => {
-        // 로딩 GIF 페이드 아웃
-        loadingGif.classList.add('fade-out');
-
-        // 애니메이션이 끝난 후 결과를 설정
-        loadingGif.addEventListener('animationend', () => {
-            // 로딩 GIF 숨기기
-            loadingGif.style.display = 'none';
-
-            // 결과 설정
-            const resultName = document.querySelector('.resultname');
-
-			// 결과 이름 설정
-            resultName.innerHTML = lastSelected;
-			// resultName.innerHTML 글자 크기 조정 bootstrap class 추가
-			resultName.classList.add('display-4');
-			// resultName.innerHTML 가운데 정렬 bootstrap class 추가
-			resultName.classList.add('text-center');
-			
-			
-
-            const resultDesc = document.querySelector('.resultDesc');
-            resultDesc.innerHTML = ''; // 기존 텍스트 지우기
-
-            // 결과 이미지 추가
-            const resultImage = document.createElement('img');
-            resultImage.src = `../image/results/${lastSelected}.png`; // 결과 이미지 경로 설정
-            resultImage.alt = lastSelected;
-            resultImage.className = 'img-fluid';
-
-            resultImage.style.maxWidth = '280px';
-            resultImage.style.height = 'auto';
-            // 이미지 가운데
-            resultImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-            resultImage.style.margin = '0 auto'; // 가운데 정렬
-
-            // 결과 이미지 삽입
-            resultDesc.appendChild(resultImage);
-
-            // Google Forms iframe 추가
-            const resultForm = document.createElement('iframe');
-            resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
-            resultForm.width = '350';
-            resultForm.height = '1600';
-            resultForm.frameBorder = '0';
-            resultForm.marginHeight = '0';
-            resultForm.marginWidth = '0';
-            resultForm.style.border = 'none'; // iframe 경계선 제거
-
-            // 폼 가운데 정렬
-            resultForm.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-            resultForm.style.margin = '0 auto'; // 가운데 정렬
-
-            // 폼 삽입
-            resultDesc.appendChild(resultForm);
-        });
+        window.location.href = `result.html?result=${resultType}&selected=${lastSelected}`;
     }, 2000); // 2초 대기 (필요에 따라 조정 가능)
 }
 
-
 function goResult() {
-    qna.style.WebkitAnimation = "fadeOut 1s";
-    qna.style.animation = "fadeOut 1s";
-    setTimeout(() => {
-        result.style.WebkitAnimation = "fadeIn 1s";
-        result.style.animation = "fadeIn 1s";
-        setTimeout(() => {
-            qna.style.display = "none";
-            result.style.display = "block";
-        }, 450);
-        setResult();
-    }, 450);
+    const resultType = calResult();
+    showLoadingAndRedirect(resultType);
 }
 
 function addAnswer(answerText, qIdx, idx) {
@@ -206,21 +143,18 @@ function updateProgressBar() {
     const progressBar = document.querySelector('.progress-bar');
     const progressCat = document.querySelector('.progress-cat');
 
-	if (currentQuestionSet == "commonQuestions") {
-		totalQuestions = 9;
-		progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
-	}
-	else if (currentQuestionSet == "education") {
-		totalQuestions = data[currentQuestionSet].length + 4;
-		progress = (((currentQuestionIndex + 1) / totalQuestions) + 4 / totalQuestions) * 100;
-	}
-	else if (currentQuestionSet == "humanitiesCommon" || currentQuestionSet == "scienceCommon") {
-		progress = 50;
-	}
-	else {
-		totalQuestions = data[currentQuestionSet].length + 5;
-		progress = (((currentQuestionIndex + 1) / totalQuestions) + 5 / totalQuestions) * 100;
-	}
+    if (currentQuestionSet == "commonQuestions") {
+        totalQuestions = 9;
+        progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+    } else if (currentQuestionSet == "education") {
+        totalQuestions = data[currentQuestionSet].length + 4;
+        progress = (((currentQuestionIndex + 1) / totalQuestions) + 4 / totalQuestions) * 100;
+    } else if (currentQuestionSet == "humanitiesCommon" || currentQuestionSet == "scienceCommon") {
+        progress = 50;
+    } else {
+        totalQuestions = data[currentQuestionSet].length + 5;
+        progress = (((currentQuestionIndex + 1) / totalQuestions) + 5 / totalQuestions) * 100;
+    }
 
     progressBar.style.width = `${progress}%`;
     progressCat.style.left = `calc(${progress}% - 15px)`; // 고양이 이미지의 절반 너비만큼 보정
@@ -247,37 +181,37 @@ function goNext() {
         addNewImage();
     }
 
-	function addNewImage() {
-		let randomImageNumber;
-		do {
-			randomImageNumber = Math.floor(Math.random() * 12) + 1; // 1부터 12 사이의 랜덤 숫자 생성
-		} while (randomImageNumber === previousRandomImageNumber);
-	
-		previousRandomImageNumber = randomImageNumber; // 현재 랜덤 숫자를 이전 숫자로 저장
-	
-		// .qBox와 .answerBox 사이에 새로운 이미지 추가
-		var imgContainer = document.createElement('div');
-		imgContainer.classList.add('image-container', 'fade-in');
-		var questionImage = document.createElement('img');
-		questionImage.src = `./image/${randomImageNumber}.png`; // 랜덤 이미지 경로 설정
-		questionImage.alt = `Question Image ${randomImageNumber}`;
-		questionImage.className = 'img-fluid';
-	
-		// 이미지 가운데 정렬 및 크기 조정
-		questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
-		questionImage.style.margin = '0 auto'; // 가운데 정렬
-		questionImage.style.maxWidth = '300px'; // 최대 너비 설정
-		questionImage.style.height = 'auto'; // 높이는 자동 조정
-		questionImage.style.maxHeight = '30vh'; // 높이는 뷰포트 높이의 20%로 제한
-	
-		imgContainer.appendChild(questionImage);
-	
-		// .qBox와 .answerBox 사이에 이미지 삽입
-		var qBox = document.querySelector('.qBox');
-		var answerBox = document.querySelector('.answerBox');
-		qBox.parentNode.insertBefore(imgContainer, answerBox);
-	}
-	
+    function addNewImage() {
+        let randomImageNumber;
+        do {
+            randomImageNumber = Math.floor(Math.random() * 12) + 1; // 1부터 12 사이의 랜덤 숫자 생성
+        } while (randomImageNumber === previousRandomImageNumber);
+
+        previousRandomImageNumber = randomImageNumber; // 현재 랜덤 숫자를 이전 숫자로 저장
+
+        // .qBox와 .answerBox 사이에 새로운 이미지 추가
+        var imgContainer = document.createElement('div');
+        imgContainer.classList.add('image-container', 'fade-in');
+        var questionImage = document.createElement('img');
+        questionImage.src = `./image/${randomImageNumber}.png`; // 랜덤 이미지 경로 설정
+        questionImage.alt = `Question Image ${randomImageNumber}`;
+        questionImage.className = 'img-fluid';
+
+        // 이미지 가운데 정렬 및 크기 조정
+        questionImage.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
+        questionImage.style.margin = '0 auto'; // 가운데 정렬
+        questionImage.style.maxWidth = '300px'; // 최대 너비 설정
+        questionImage.style.height = 'auto'; // 높이는 자동 조정
+        questionImage.style.maxHeight = '30vh'; // 높이는 뷰포트 높이의 20%로 제한
+
+        imgContainer.appendChild(questionImage);
+
+        // .qBox와 .answerBox 사이에 이미지 삽입
+        var qBox = document.querySelector('.qBox');
+        var answerBox = document.querySelector('.answerBox');
+        qBox.parentNode.insertBefore(imgContainer, answerBox);
+    }
+
     let options = data[currentQuestionSet][currentQuestionIndex].options;
     if (currentQuestionSet === "humanitiesDetail" && currentQuestionIndex === 3) {
         // Filter options for id 10
