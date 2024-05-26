@@ -33,30 +33,6 @@ body {
     margin-top: 20px;
 }
 
-.retry-button {
-    background-color: green; /* 기본 파란색 */
-    color: #ffffff; /* 흰색 텍스트 */
-    font-size: 3rem; /* 폰트 크기 증가 */
-    padding: 10px 20px; /* 패딩 추가 */
-    border-radius: 30px; /* 둥근 모서리 */
-    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
-    font-family: 'Maplestory Light';
-    font-weight: 580;
-    width: 40%;
-}
-
-.retry-button:hover {
-    background-color: darkgreen; /* 호버 시 더 어두운 파란색 */
-    color: #ffffff; /* 호버 시 흰색 텍스트 유지 */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 더 진하게 */
-}
-
-.retry-button:active {
-    background-color: darkgreen; /* 클릭 시 더 진한 파란색 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 변화 */
-}
-
 .result-container {
     border: 5px solid #5B9473; /* Border color */
     border-radius: 60px; /* Rounded corners */
@@ -96,4 +72,47 @@ body {
     list-style-type: none; /* List item style */
     margin-bottom: 5px; /* Space between list items */
 	font-family: 'Maplestory Light'
+}
+
+/* Existing styles... */
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure the container uses the full width */
+    margin-top: 20px; /* Space above the button container */
+    padding: 0 10%; /* 10% padding on left and right */
+}
+
+.button-container a,
+.button-container button {
+    flex-grow: 1; /* Make buttons grow to fill the container equally */
+    margin: 0 5px; /* Add some space between buttons */
+}
+
+/* Reuse existing button styles */
+.retry-button, .download-button {
+    background-color: green; /* 기본 파란색 */
+    color: #ffffff; /* 흰색 텍스트 */
+    font-size: 2rem; /* 폰트 크기 증가 */
+    padding: 10px 20px; /* 패딩 추가 */
+    border-radius: 30px; /* 둥근 모서리 */
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    font-family: 'Maplestory Light';
+    font-weight: 580;
+    text-align: center;
+    text-decoration: none; /* Remove underline for anchor */
+}
+
+.retry-button:hover, .download-button:hover {
+    background-color: darkgreen; /* 호버 시 더 어두운 파란색 */
+    color: #ffffff; /* 호버 시 흰색 텍스트 유지 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 더 진하게 */
+}
+
+.retry-button:active, .download-button:active {
+    background-color: darkgreen; /* 클릭 시 더 진한 파란색 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 변화 */
 }

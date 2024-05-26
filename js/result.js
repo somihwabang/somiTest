@@ -13,13 +13,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add result image
+    let imageUrl = '';
     if (resultImgContainer && lastSelected) {
         const resultImage = document.createElement('img');
-        resultImage.src = `../image/results/${lastSelected}.png`; // Path to result image
+        imageUrl = `../image/results/${lastSelected}.png`; // Path to result image
+        resultImage.src = imageUrl;
         resultImage.alt = lastSelected;
         resultImage.className = 'img-fluid';
         resultImage.style.maxWidth = '80%'; // Maximum width set to 80% of the container
-        resultImage.style.width = '99vw'; // Width set to 400px
+        resultImage.style.width = '99vw'; // Width set to 99vw
         resultImage.style.height = 'auto';
         resultImage.style.display = 'block';
         resultImage.style.margin = '0 auto';
@@ -57,17 +59,30 @@ window.addEventListener('DOMContentLoaded', () => {
         resultDescElement.appendChild(resultContainer);
     }
 
-    // Add retry button
+    // Add retry button and download button in a flex container
     if (resultDescElement) {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+
         const retryButton = document.createElement('button');
         retryButton.innerHTML = '다시하기';
-        retryButton.className = 'btn btn-primary mt-3 retry-button'; // Added class
-        retryButton.style.display = 'block';
-        retryButton.style.margin = '20px auto'; // Center alignment
+        retryButton.className = 'btn retry-button'; // Reuse existing styles
         retryButton.addEventListener('click', () => {
             window.location.href = 'index.html'; // Navigate to index.html to retry
         });
-        resultDescElement.appendChild(retryButton);
+        buttonContainer.appendChild(retryButton);
+
+        // Add download button
+        if (imageUrl) {
+            const downloadButton = document.createElement('a');
+            downloadButton.href = imageUrl;
+            downloadButton.download = `${lastSelected}.png`;
+            downloadButton.className = 'btn download-button'; // Reuse existing styles
+            downloadButton.innerHTML = '이미지 다운로드';
+            buttonContainer.appendChild(downloadButton);
+        }
+
+        resultDescElement.appendChild(buttonContainer);
     }
 
     // Adjust iframe height on window resize
