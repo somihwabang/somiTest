@@ -11,6 +11,7 @@
   font-size: 23px;
   width: 90%
 }
+
 .answerList {
   font-family: 'BMJUA';
   max-width: 425px;
@@ -27,8 +28,6 @@
   border: 4px solid #477560;
   box-sizing: border-box; /* 패딩과 보더를 포함한 전체 높이 및 너비 계산 */
 }
-
-
 
 .answerList:hover, .answerList:focus {
   background-color: #4D5D4A;
