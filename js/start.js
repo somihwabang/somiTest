@@ -42,6 +42,10 @@ function setResult() {
     loadingGif.alt = 'Loading...';
     loadingGif.className = 'loading-gif img-fluid';
 
+	// 로딩 GIF 크기 조정
+	loadingGif.style.maxWidth = '380px'; // 최대 너비 설정
+	loadingGif.style.height = 'auto'; // 높이는 자동 조정
+
     // 로딩 GIF 가운데 정렬
     loadingGif.style.display = 'block'; // 인라인 요소를 블록 요소로 변경
     loadingGif.style.margin = '0 auto'; // 가운데 정렬
