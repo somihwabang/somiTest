@@ -4,11 +4,10 @@
 }
 
 @font-face {
-	font-family: 'Maplestory Bold';
-	src: url('../fonts/Maplestory OTF Bold.otf') format('opentype');
+    font-family: 'Maplestory Bold';
+    src: url('../fonts/Maplestory OTF Bold.otf') format('opentype');
 }
 
-/* result.css */
 body {
     background-color: #fffef5;
     margin: 0;
@@ -22,7 +21,8 @@ body {
 .resultname {
     font-family: 'Maplestory Bold', sans-serif;
     margin-top: 20px;
-	color: #388E5E;
+	font-size: 2.5rem;
+    color: #388E5E;
 }
 
 #resultImg img {
@@ -36,14 +36,14 @@ body {
 .retry-button {
     background-color: green; /* 기본 파란색 */
     color: #ffffff; /* 흰색 텍스트 */
-    font-size: 1.2rem; /* 폰트 크기 증가 */
+    font-size: 3rem; /* 폰트 크기 증가 */
     padding: 10px 20px; /* 패딩 추가 */
-    border-radius: 5px; /* 둥근 모서리 */
+    border-radius: 30px; /* 둥근 모서리 */
     transition: background-color 0.3s ease; /* 배경색 전환 효과 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
-	font-family: 'BMJUA';
-	font-weight: 580;
-	width: 40%;
+    font-family: 'Maplestory Light';
+    font-weight: 580;
+    width: 40%;
 }
 
 .retry-button:hover {
@@ -53,6 +53,47 @@ body {
 }
 
 .retry-button:active {
-    background-color: #004085; /* 클릭 시 더 진한 파란색 */
+    background-color: darkgreen; /* 클릭 시 더 진한 파란색 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 변화 */
+}
+
+.result-container {
+    border: 5px solid #5B9473; /* Border color */
+    border-radius: 60px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    margin-top: 20px; /* Margin at the top */
+    background-color: #F9F9F9; /* Background color */
+	max-width: 70vw;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+.result-container h2 {
+    font-family: 'Maplestory Light', sans-serif; /* Font family */
+    color: #5B9473; /* Text color */
+    font-size: 4em; /* Font size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.result-container p,
+.result-container ul {
+    font-family: 'Maplestory Light'; /* Font family */
+    color: #333; /* Text color */
+    font-size: 2em; /* Font size */
+    margin-top: 10px; /* Space above text */
+	/* 좌우 여백 최소화 */
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.result-container ul {
+    padding-left: 20px; /* Padding for list items */
+	text-align: left;
+}
+
+.result-container ul li {
+    list-style-type: none; /* List item style */
+    margin-bottom: 5px; /* Space between list items */
+	font-family: 'Maplestory Light'
 }
