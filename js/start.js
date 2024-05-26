@@ -206,12 +206,16 @@ function updateProgressBar() {
 		totalQuestions = 9;
 		progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
 	}
+	else if (currentQuestionSet == "education") {
+		totalQuestions = data[currentQuestionSet].length + 4;
+		progress = (((currentQuestionIndex + 1) / totalQuestions) + 4 / totalQuestions) * 100;
+	}
 	else if (currentQuestionSet == "humanitiesCommon" || currentQuestionSet == "scienceCommon") {
 		progress = 50;
 	}
 	else {
 		totalQuestions = data[currentQuestionSet].length + 5;
-		progress = ((currentQuestionIndex + 1) / totalQuestions) * 100 + 50;
+		progress = (((currentQuestionIndex + 1) / totalQuestions) + 5 / totalQuestions) * 100;
 	}
 
     progressBar.style.width = `${progress}%`;
