@@ -5,4 +5,4 @@
 
 
 
-##### [db](http://www.somihwabang.kr/admin)
+##### [results](http://www.somihwabang.kr/admin)
