@@ -176,7 +176,7 @@ function goNext() {
     function addNewImage() {
         let randomImageNumber;
         do {
-            randomImageNumber = Math.floor(Math.random() * 12) + 1; // 1부터 12 사이의 랜덤 숫자 생성
+            randomImageNumber = Math.floor(Math.random() * 13) + 1; // 1부터 12 사이의 랜덤 숫자 생성
         } while (randomImageNumber === previousRandomImageNumber);
 
         previousRandomImageNumber = randomImageNumber; // 현재 랜덤 숫자를 이전 숫자로 저장
