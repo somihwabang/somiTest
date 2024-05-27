@@ -105,7 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // Add download button
         if (imageUrl) {
             const downloadButton = document.createElement('a');
-            downloadButton.href = imageUrl;
+            downloadButton.href = `800w/${lastSelected}.png`; // Updated path for download
             downloadButton.download = `소미화방_${lastSelected}.jpg`; // Custom file name
             downloadButton.className = 'btn download-button'; // Reuse existing styles
             downloadButton.innerHTML = '이미지 다운로드';
