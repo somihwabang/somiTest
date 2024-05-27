@@ -60,7 +60,6 @@ function showLoadingAndRedirect(resultType) {
     loadingGif.className = 'loading-gif img-fluid';
     qna.appendChild(loadingGif);
 
-    // 서버에 lastSelected 값을 저장
     fetch('/save', {
         method: 'POST',
         headers: {
@@ -79,6 +78,7 @@ function showLoadingAndRedirect(resultType) {
         console.error('Error:', error);
     });
 }
+
 
 function goResult() {
     const resultType = calResult();
