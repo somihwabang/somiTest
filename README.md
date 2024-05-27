@@ -1,8 +1,7 @@
 # [somihwabang.kr](http://www.somihwabang.kr)
 
 
-![Screenshot 2024-05-27 at 11 37 17 PM](https://github.com/minjcho/somimbti/assets/117441212/b2c28266-cc7d-4b35-94f2-e6b4077d2d0b)
-
+![Screenshot 2024-05-28 at 1 17 02 AM](https://github.com/minjcho/somimbti/assets/117441212/43321ac5-d10e-4efc-a94e-90a6e16112aa)
 
 
 ##### [results](http://www.somihwabang.kr/admin)
