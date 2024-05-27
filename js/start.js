@@ -56,6 +56,81 @@ function goResult() {
     showLoadingAndRedirect(resultType);
 }
 
+// function addAnswer(answerText, qIdx, idx) {
+//     var a = document.querySelector('.answerBox');
+//     var answer = document.createElement('button');
+//     answer.classList.add('answerList');
+//     answer.classList.add('my-3');
+//     answer.classList.add('py-3');
+//     answer.classList.add('mx-auto');
+//     answer.classList.add('fadeIn');
+
+//     a.appendChild(answer);
+//     answer.innerHTML = answerText;
+
+//     answer.addEventListener("click", function () {
+//         var children = document.querySelectorAll('.answerList');
+//         for (let i = 0; i < children.length; i++) {
+//             children[i].disabled = true;
+//             children[i].style.WebkitAnimation = "fadeOut 0.5s";
+//             children[i].style.animation = "fadeOut 0.5s";
+//         }
+//         setTimeout(() => {
+//             const nextKey = getNextValue(currentQuestionSet, qIdx, answerText);
+//             lastSelected = nextKey;
+//             if (currentQuestionSet === "humanitiesDetail") {
+//                 selectedOptions.humanitiesDetail.push(nextKey);
+//             } else if (currentQuestionSet === "social") {
+//                 selectedOptions.social.push(nextKey);
+//             } else if (currentQuestionSet === "art") {
+//                 selectedOptions.art.push(nextKey);
+//             } else if (currentQuestionSet === "natural") {
+//                 selectedOptions.natural.push(nextKey);
+//             } else if (currentQuestionSet === "engineering") {
+//                 selectedOptions.engineering.push(nextKey);
+//             } else if (currentQuestionSet === "medical") {
+//                 selectedOptions.medical.push(nextKey);
+//             } else if (currentQuestionSet === "education") {
+//                 selectedOptions.education.push(nextKey);
+//             }
+
+//             if (nextKey === "education") {
+//                 select.education++;
+//             } else if (nextKey === "humanities") {
+//                 select.humanities++;
+//             } else if (nextKey === "science") {
+//                 select.science++;
+//             }
+
+//             for (let i = 0; i < children.length; i++) {
+//                 children[i].style.display = 'none';
+//             }
+
+//             currentQuestionIndex++;
+//             if (currentQuestionIndex < data[currentQuestionSet].length) {
+//                 goNext();
+//             } else {
+//                 // 처음 4개의 공통 질문 이후 다음 질문 세트를 결정
+//                 if (currentQuestionSet === "commonQuestions") {
+//                     if (select.education >= 2) {
+//                         currentQuestionSet = "education";
+//                     } else {
+//                         currentQuestionSet = calResult() + "Common";
+//                     }
+//                     currentQuestionIndex = 0;
+//                     goNext();
+//                 } else if (currentQuestionSet === "humanitiesCommon" || currentQuestionSet === "scienceCommon") {
+//                     currentQuestionSet = nextKey;
+//                     currentQuestionIndex = 0;
+//                     goNext();
+//                 } else {
+//                     goResult();
+//                 }
+//             }
+//         }, 450);
+//     }, false);
+// }
+
 function addAnswer(answerText, qIdx, idx) {
     var a = document.querySelector('.answerBox');
     var answer = document.createElement('button');
@@ -102,6 +177,18 @@ function addAnswer(answerText, qIdx, idx) {
                 select.science++;
             }
 
+            // 학과 카운트 증가 API 호출
+            fetch('http://localhost:3000/updateCount', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ department: lastSelected }),
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
             for (let i = 0; i < children.length; i++) {
                 children[i].style.display = 'none';
             }
@@ -130,6 +217,7 @@ function addAnswer(answerText, qIdx, idx) {
         }, 450);
     }, false);
 }
+
 
 function updateProgressBar() {
     const progressBar = document.querySelector('.progress-bar');
