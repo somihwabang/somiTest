@@ -464,3 +464,16 @@ window.addEventListener('resize', () => {
         fitText(resultNameElement, 80); // 최대 폰트 크기 80px
     }
 });
+
+fetch('http://localhost:3000/updateCount', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ department: nextKey })
+})
+.then(response => response.text())
+.then(data => {
+    console.log('Server response:', data);
+})
+.catch((error) => console.error('Error:', error));
