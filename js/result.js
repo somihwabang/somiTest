@@ -19,12 +19,11 @@ window.addEventListener('DOMContentLoaded', () => {
         imageUrl = `../image/results/${lastSelected}.png`; // Path to result image
         resultImage.src = imageUrl;
         resultImage.alt = lastSelected;
-        resultImage.className = 'img-fluid';
-        resultImage.style.maxWidth = '800px'; // Maximum width set to 80% of the container
-        resultImage.style.width = '80vw'; // Width set to 99vw
-        resultImage.style.height = 'auto';
-        resultImage.style.display = 'block';
-        resultImage.style.margin = '0 auto';
+        resultImage.className = 'img-fluid'; // Add Bootstrap class for responsive image
+        resultImage.style.maxWidth = '100%'; // Ensure the image does not exceed the container width
+        resultImage.style.height = 'auto'; // Maintain aspect ratio
+        resultImage.style.display = 'block'; // Center the image
+        resultImage.style.margin = '0 auto'; // Center the image
         resultImgContainer.appendChild(resultImage);
     }
 
@@ -36,28 +35,57 @@ window.addEventListener('DOMContentLoaded', () => {
         const resultContainer = document.createElement('div');
         resultContainer.className = 'result-container';
 
-		const descHeading = document.createElement('h2');
-		descHeading.innerText = `${selectedMajorInfo.major} 는요`;
-		descHeading.style.fontSize = "3.5rem";
-		resultContainer.appendChild(descHeading);
-		
+        const descHeading = document.createElement('h2');
+        descHeading.innerText = `${selectedMajorInfo.major}는요`;
+        descHeading.style.whiteSpace = "nowrap"; // Prevent line break
+        descHeading.style.display = "block";
+        descHeading.style.width = "100%"; // Adjust width as needed
+        descHeading.style.overflow = "hidden"; // Ensure text stays within the container
+        descHeading.style.fontFamily = 'Maplestory Light'; // Set font
+
+        resultContainer.appendChild(descHeading);
+
         const descParagraph = document.createElement('p');
         descParagraph.innerText = selectedMajorInfo.desc;
+        descParagraph.style.fontFamily = 'Maplestory Light'; // Set font
         resultContainer.appendChild(descParagraph);
 
         const learningHeading = document.createElement('h2');
-		learningHeading.style.fontSize = "3.5rem";
-        learningHeading.innerText = '어떤 것을 배울까요?';
+        learningHeading.innerText = '이런 학과도 어울려요!';
+        learningHeading.style.whiteSpace = "nowrap"; // Prevent line break
+        learningHeading.style.display = "block";
+        learningHeading.style.width = "100%"; // Adjust width as needed
+        learningHeading.style.overflow = "hidden"; // Ensure text stays within the container
+        learningHeading.style.fontFamily = 'Maplestory Light'; // Set font
+
         resultContainer.appendChild(learningHeading);
 
         const learningList = document.createElement('ul');
+        learningList.style.listStyle = 'none'; // Remove list bullets
+
         selectedMajorInfo.learning.forEach(subject => {
             const listItem = document.createElement('li');
-            listItem.innerText = subject;
+            listItem.style.display = 'flex';
+            listItem.style.flexWrap = 'wrap';
+            listItem.style.fontFamily = 'Maplestory Light'; // Set font
+
+            const nameElement = document.createElement('strong');
+            nameElement.style.flex = '0 0 auto';
+            nameElement.style.marginRight = '5px';
+            nameElement.innerText = `${subject.name}:`;
+            nameElement.style.fontFamily = 'Maplestory Light'; // Set font
+
+            const descElement = document.createElement('span');
+            descElement.style.flex = '1 1 auto';
+            descElement.innerText = subject.desc;
+            descElement.style.fontFamily = 'Maplestory Light'; // Set font
+
+            listItem.appendChild(nameElement);
+            listItem.appendChild(descElement);
             learningList.appendChild(listItem);
         });
-        resultContainer.appendChild(learningList);
 
+        resultContainer.appendChild(learningList);
         resultDescElement.appendChild(resultContainer);
     }
 

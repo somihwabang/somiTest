@@ -45,22 +45,29 @@ body {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
 }
 
+
 .result-container h2 {
     font-family: 'Maplestory Light', sans-serif; /* Font family */
     color: #5B9473; /* Text color */
-    font-size: 4em; /* Font size */
+    font-size: clamp(1.5rem, 4vw, 50px); /* Flexible font size with max 50px */
     margin-bottom: 10px; /* Space below heading */
+}
+
+/* .resultname 클래스의 폰트 크기를 flexible 하게 설정하고 최대 크기를 50px로 제한 */
+.resultname {
+    font-size: clamp(1.5rem, 10vw, 50px); /* Flexible font size with max 50px */
 }
 
 .result-container p,
 .result-container ul {
     font-family: 'Maplestory Light'; /* Font family */
     color: #333; /* Text color */
-    font-size: 2em; /* Font size */
+    font-size: 1.8em; /* Font size */
     margin-top: 10px; /* Space above text */
 	/* 좌우 여백 최소화 */
 	margin-left: 10px;
 	margin-right: 10px;
+	text-align: left;
 }
 
 .result-container ul {
@@ -116,3 +123,26 @@ body {
     background-color: darkgreen; /* 클릭 시 더 진한 파란색 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 변화 */
 }
+
+
+@media (min-width: 576px) {
+	.resultname {
+		font-size: 8vw;
+	}
+}
+@media (min-width: 768px) {
+	.resultname {
+		font-size: 6vw;
+	}
+}
+@media (min-width: 992px) {
+	.resultname {
+		font-size: 4vw;
+	}
+}
+@media (min-width: 1200px) {
+	.resultname {
+		font-size: 3vw;
+	}
+}
+
