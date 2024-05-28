@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
         resultImage.src = imageUrl;
         resultImage.alt = lastSelected;
         resultImage.className = 'img-fluid'; // Add Bootstrap class for responsive image
-        resultImage.style.maxWidth = '100%'; // Ensure the image does not exceed the container width
+        resultImage.style.maxWidth = '90%'; // Ensure the image does not exceed the container width
         resultImage.style.height = 'auto'; // Maintain aspect ratio
         resultImage.style.display = 'block'; // Center the image
         resultImage.style.margin = '0 auto'; // Center the image
@@ -42,12 +42,16 @@ window.addEventListener('DOMContentLoaded', () => {
         descHeading.style.width = "100%"; // Adjust width as needed
         descHeading.style.overflow = "hidden"; // Ensure text stays within the container
         descHeading.style.fontFamily = 'Maplestory Light'; // Set font
+		// font bold
+		descHeading.style.fontWeight = 'bold';
 
         resultContainer.appendChild(descHeading);
 
         const descParagraph = document.createElement('p');
         descParagraph.innerText = selectedMajorInfo.desc;
         descParagraph.style.fontFamily = 'Maplestory Light'; // Set font
+		// font size
+		descParagraph.style.fontSize = '1.5em';
         resultContainer.appendChild(descParagraph);
 
         const learningHeading = document.createElement('h2');
@@ -57,6 +61,8 @@ window.addEventListener('DOMContentLoaded', () => {
         learningHeading.style.width = "100%"; // Adjust width as needed
         learningHeading.style.overflow = "hidden"; // Ensure text stays within the container
         learningHeading.style.fontFamily = 'Maplestory Light'; // Set font
+		// font bold
+		learningHeading.style.fontWeight = 'bold';
 
         resultContainer.appendChild(learningHeading);
 
@@ -74,11 +80,15 @@ window.addEventListener('DOMContentLoaded', () => {
             nameElement.style.marginRight = '5px';
             nameElement.innerText = `${subject.name}:`;
             nameElement.style.fontFamily = 'Maplestory Light'; // Set font
+			// font size
+			nameElement.style.fontSize = '0.8em';
 
             const descElement = document.createElement('span');
             descElement.style.flex = '1 1 auto';
             descElement.innerText = subject.desc;
             descElement.style.fontFamily = 'Maplestory Light'; // Set font
+			// font size
+			descElement.style.fontSize = '0.8em';
 
             listItem.appendChild(nameElement);
             listItem.appendChild(descElement);
@@ -120,16 +130,16 @@ window.addEventListener('DOMContentLoaded', () => {
         resultForm.height = window.innerHeight * 0.8 + 'px';
     });
 
-    // Add Google Forms iframe
-    const resultForm = document.createElement('iframe');
-    resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
-    resultForm.width = '100%';
-    resultForm.height = window.innerHeight * 0.8 + 'px'; // Height set to 80% of the window height
-    resultForm.frameBorder = '0';
-    resultForm.marginHeight = '0';
-    resultForm.marginWidth = '0';
-    resultForm.style.border = 'none';
-    resultForm.style.display = 'block';
-    resultForm.style.margin = '20px auto'; // Add margin to top and bottom
-    resultDescElement.appendChild(resultForm);
+    // // Add Google Forms iframe
+    // const resultForm = document.createElement('iframe');
+    // resultForm.src = 'https://docs.google.com/forms/d/e/1FAIpQLSe37Lxv2IXRRp5XsT5geG5JS140kL8nFUnl1Kd3eaLX2BvwsA/viewform?embedded=true';
+    // resultForm.width = '100%';
+    // resultForm.height = window.innerHeight * 0.8 + 'px'; // Height set to 80% of the window height
+    // resultForm.frameBorder = '0';
+    // resultForm.marginHeight = '0';
+    // resultForm.marginWidth = '0';
+    // resultForm.style.border = 'none';
+    // resultForm.style.display = 'block';
+    // resultForm.style.margin = '20px auto'; // Add margin to top and bottom
+    // resultDescElement.appendChild(resultForm);
 });
