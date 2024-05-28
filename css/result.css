@@ -39,7 +39,7 @@ body {
     padding: 20px; /* Padding inside the box */
     margin-top: 20px; /* Margin at the top */
     background-color: #F9F9F9; /* Background color */
-	max-width: 800px;
+	max-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
