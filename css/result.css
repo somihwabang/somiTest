@@ -87,7 +87,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%; /* Ensure the container uses the full width */
-	max-width: 800px;
+	max-width: 600px;
     margin-top: 20px; /* Space above the button container */
 	margin-left: auto; /* Center the container */
 	margin-right: auto; /* Center the container */
