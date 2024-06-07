@@ -33,24 +33,6 @@ function calResult() {
     return select.humanities >= select.science ? 'humanities' : 'science';
 }
 
-// function showLoadingAndRedirect(resultType) {
-//     // qna 내용을 숨기고 로딩 GIF만 표시
-//     qna.innerHTML = '';
-
-//     // 로딩 GIF 요소 추가
-//     const loadingGif = document.createElement('img');
-//     loadingGif.src = '../image/loading.gif'; // 로딩 GIF 경로 설정
-//     loadingGif.alt = 'Loading...';
-//     loadingGif.className = 'loading-gif img-fluid';
-
-//     qna.appendChild(loadingGif);
-
-//     // 결과를 설정하기 전에 잠시 대기 (예: 2초)
-//     setTimeout(() => {
-//         window.location.href = `result.html?result=${resultType}&selected=${lastSelected}`;
-//     }, 2000); // 2초 대기 (필요에 따라 조정 가능)
-// }
-
 function showLoadingAndRedirect(resultType) {
     qna.innerHTML = '';
 
@@ -60,25 +42,10 @@ function showLoadingAndRedirect(resultType) {
     loadingGif.className = 'loading-gif img-fluid';
     qna.appendChild(loadingGif);
 
-    fetch('/save', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ lastSelected })
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        setTimeout(() => {
-            window.location.href = `result.html?result=${resultType}&selected=${lastSelected}`;
-        }, 2000);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    setTimeout(() => {
+        window.location.href = `result.html?result=${resultType}&selected=${lastSelected}`;
+    }, 2000);
 }
-
 
 function goResult() {
     const resultType = calResult();
