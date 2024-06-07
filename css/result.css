@@ -118,6 +118,14 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.result_share {
+	font-family: 'Maplestory Bold', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
 @media (min-width: 1000px) {
 	.result-container p{
 		font-size: 2em;

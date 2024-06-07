@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
             downloadButton.href = `800w/${lastSelected}.png`;
             downloadButton.download = `소미화방_${lastSelected}.jpg`;
             downloadButton.className = 'btn download-button';
-            downloadButton.innerHTML = '이미지 다운로드';
+            downloadButton.innerHTML = '결과 다운로드';
             buttonContainer.appendChild(downloadButton);
         }
 
