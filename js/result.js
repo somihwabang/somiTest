@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
         resultImage.alt = lastSelected;
         resultImage.className = 'img-fluid';
         resultImage.style.maxWidth = '60%';
-		resultImage.style.maxWidth = '600px';
+        resultImage.style.maxWidth = '600px';
         resultImage.style.height = 'auto';
         resultImage.style.display = 'block';
         resultImage.style.margin = '0 auto';
@@ -34,27 +34,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const descHeading = document.createElement('h2');
         descHeading.innerText = `${selectedMajorInfo.major}는요`;
-		descHeading.style.marginTop = '30px';
+        descHeading.style.marginTop = '30px';
         descHeading.style.whiteSpace = "nowrap";
         descHeading.style.display = "block";
         descHeading.style.width = "100%";
         descHeading.style.overflow = "hidden";
         descHeading.style.fontFamily = 'Maplestory Light';
         descHeading.style.fontWeight = 'bold';
-		descHeading.style.fontSize = '4em';
+        descHeading.style.fontSize = '4em';
 
         resultContainer.appendChild(descHeading);
 
         const descParagraph = document.createElement('p');
-		descParagraph.style.marginTop = '30px';
+        descParagraph.style.marginTop = '30px';
         descParagraph.innerText = selectedMajorInfo.desc;
         descParagraph.style.fontFamily = 'Maplestory Light';
-        // descParagraph.style.fontSize = '1.5em';
         resultContainer.appendChild(descParagraph);
 
         const learningHeading = document.createElement('h2');
-		learningHeading.style.marginTop = '50px';
-		learningHeading.style.marginBottom = '30px';
+        learningHeading.style.marginTop = '50px';
+        learningHeading.style.marginBottom = '30px';
         learningHeading.innerText = '이런 학과도 어울려요!';
         learningHeading.style.whiteSpace = "nowrap";
         learningHeading.style.display = "block";
@@ -62,8 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
         learningHeading.style.overflow = "hidden";
         learningHeading.style.fontFamily = 'Maplestory Light';
         learningHeading.style.fontWeight = 'bold';
-		learningHeading.style.fontSize = '4.5em';
-
+        learningHeading.style.fontSize = '4.5em';
 
         resultContainer.appendChild(learningHeading);
 
@@ -81,14 +79,12 @@ window.addEventListener('DOMContentLoaded', () => {
             nameElement.style.marginRight = '5px';
             nameElement.innerText = `${subject.name}:`;
             nameElement.style.fontFamily = 'Maplestory Light';
-            // nameElement.style.fontSize = '0.8em';
 
             const descElement = document.createElement('span');
             descElement.style.flex = '1 1 auto';
             descElement.innerText = subject.desc;
             descElement.style.fontFamily = 'Maplestory Light';
-			descElement.style.marginBottom = '15px';
-            // descElement.style.fontSize = '0.8em';
+            descElement.style.marginBottom = '15px';
 
             listItem.appendChild(nameElement);
             listItem.appendChild(descElement);
@@ -126,24 +122,23 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         resultForm.height = window.innerHeight * 0.8 + 'px';
     });
-});
 
-document.getElementById('shareButton').addEventListener('click', function() {
-    const url = "https://www.somihwabang.kr";
-    navigator.clipboard.writeText(url).then(() => {
-        const shareModal = new bootstrap.Modal(document.getElementById('shareModal'), {
-            keyboard: true
+    // Share Button Event Handler
+    const shareButton = document.getElementById('shareButton');
+    shareButton.addEventListener('click', function() {
+        const url = "https://www.somihwabang.kr";
+        navigator.clipboard.writeText(url).then(() => {
+            alert('링크가 복사 되었어요!');
+        }).catch((error) => {
+            console.error('링크 복사에 실패했습니다:', error);
         });
-        shareModal.show();
-    }).catch((error) => {
-        console.error('링크 복사에 실패했습니다:', error);
     });
-});
 
-document.getElementById('shareButton').addEventListener('mouseover', function() {
-    document.getElementById('shareImage').src = './image/test_share_hover.png';
-});
+    shareButton.addEventListener('mouseover', function() {
+        document.getElementById('shareImage').src = './image/test_share_hover.png';
+    });
 
-document.getElementById('shareButton').addEventListener('mouseout', function() {
-    document.getElementById('shareImage').src = './image/test_share.png';
+    shareButton.addEventListener('mouseout', function() {
+        document.getElementById('shareImage').src = './image/test_share.png';
+    });
 });
