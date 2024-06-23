@@ -21,9 +21,9 @@ body {
 .resultname {
     font-family: 'Maplestory Bold', sans-serif;
     margin-top: 20px;
-	/* clamp : 최소값, 최대값, 단위 */
+    /* clamp : 최소값, 최대값, 단위 */
     font-size: clamp(5rem, 10vw, 50px);
-    color: #388E5E;;
+    color: #388E5E;
 }
 
 #resultImg img {
@@ -119,19 +119,31 @@ body {
 }
 
 .result_share {
-	font-family: 'Maplestory Bold', sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 20px;
+    font-family: 'Maplestory Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.share_sns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 아이콘 간의 간격 조정 */
+}
+
+.background-section {
+    background-color: #4D5E4A;
+    padding: 20px 0;
 }
 
 @media (min-width: 1000px) {
-	.result-container p{
-		font-size: 2em;
-	}
+    .result-container p {
+        font-size: 2em;
+    }
 
-	.result-container ul{
-		font-size: 2em;
-	}
+    .result-container ul {
+        font-size: 2em;
+    }
 }

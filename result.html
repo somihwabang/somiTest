@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/result.css">
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-18RY67HFBC"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-18RY67HFBC"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-	gtag('config', 'G-18RY67HFBC');
-	</script>
+    gtag('config', 'G-18RY67HFBC');
+    </script>
     <!-- End Google Analytics -->
-	
+    
 </head>
 <body>
-	<br><br><br><br><br>
+    <br><br><br>
     <div class="container-fluid text-center mx-auto col-12">
-		<!-- <img src="./image/logo.png" alt="logo" class="img-fluid mx-auto" width="400px"><br><br> -->
+        <!-- <img src="./image/logo.png" alt="logo" class="img-fluid mx-auto" width="400px"><br><br> -->
         <div class="d-flex justify-content-center">
             <h4 class="display-4 my-3" style="font-family: Maplestory Light; color:#5B9473; width: 700px; height: auto;">당신의 학과는?!</h4>
         </div>
@@ -30,24 +30,65 @@
             <h1 class="resultname display-4 my-0 text-nowrap" style="height: auto; white-space: nowrap;"></h1>
         </div>
         <div id="resultImg" class="my-3 col-lg-8 col-md-10 col-sm-12 mx-auto" style="height: auto;"></div><br>
-        <div class="resultDesc col-lg-8 col-md-10 col-sm-12 mx-auto"></div>
+        <div class="resultDesc col-lg-8 col-md-10 col-sm-12 mx-auto"></div><br><br>
     </div>
-	<div class="result_share">
-		<p class="share_tits" style="font-size: 3em; font-family: 'Maplestory Bold';">소미화방 만나러가기</p>		
-		<div class="share_sns">
-			<a href="https://www.instagram.com/somi_hwabang/" target="_blank">
-			  <img src="image/icons/instagram.png" alt="" class="img--style01">
-			</a>
-			<a href="https://www.youtube.com/@SomiHwabang/" target="_blank">
-			  <img src="image/icons/youtube.png" alt="" class="img--style01">
-			</a>
-			<a href="https://www.threads.net/@somi_hwabang" target="_blank">
-			  <img src="image/icons/thread.png" alt="" class="img--style01">
-			</a>
-		  </div>		
-	</div>
+
+    <!-- Event Image Section -->
+    <div class="text-center mx-auto col-12 my-4">
+        <h1 style="font-family: Maplestory Bold; color:#5B9473; font-size: 4em;">EVENT</h1>
+        <p style="font-family: Maplestory Light; color: black; font-size: 2.5em; padding: 0 50px;">
+            결과사진과 링크를 인스타그램 스토리에 공유하면 추첨을 통해서 굿즈 세트를 드려요!<br>
+            (추첨을 위해 @somi_hwabang 태그하기!)
+        </p>
+        <img src="./image/event.png" alt="Event Image" class="img-fluid mx-auto" style="max-width: 400px; height: auto;">
+        <p style="font-family: Maplestory Light; color: black; font-size: 2.5em; padding: 0 50px;">
+            키링, 엽서, 스티커 등 풍성한 선물을 드려요!
+        </p>
+    </div>
+
+    <div class="background-section">
+        <div class="result_share">
+            <button id="shareButton" class="btn btn-primary" style="background: none; border: none; padding: 0;">
+                <img src="./image/test_share.png" id="shareImage" alt="결과 공유하기" style="width: 400px;">
+            </button>
+        </div>
+        <br>
+        <div class="share_sns">
+            <a href="https://www.instagram.com/somi_hwabang/" target="_blank">
+                <img src="./image/icons/instagram.png" alt="" class="img--style01">
+            </a>
+            <a href="https://www.youtube.com/@SomiHwabang/" target="_blank">
+                <img src="./image/icons/youtube.png" alt="" class="img--style01">
+            </a>
+            <a href="https://www.threads.net/@somi_hwabang" target="_blank">
+                <img src="./image/icons/thread.png" alt="" class="img--style01">
+            </a>
+        </div>
+        <div class="result_share">
+            <p class="share_tits" style="font-size: 3em; font-family: 'Maplestory Bold'; color: aliceblue;">SOMI HWABANG</p>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shareModalLabel">공유 알림</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    링크가 복사 되었어요!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./js/data.js" charset="utf-8"></script>
     <script src="./js/result.js" charset="utf-8"></script>
+    <script src="./js/share.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlRBf7iS3kzTQNV5mKlL65bLVDc9f8Lf7/QyY0t9scwXqJ8Rbs1m5L9e3Nr" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq5j2K6T6zcTU5p6AMcRj7l6GmZDm1M4rEF5Dj2FN5ISV9i6c2" crossorigin="anonymous"></script>
 </body>
-<br><br><br><br><br>
 </html>

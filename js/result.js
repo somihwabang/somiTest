@@ -127,3 +127,23 @@ window.addEventListener('DOMContentLoaded', () => {
         resultForm.height = window.innerHeight * 0.8 + 'px';
     });
 });
+
+document.getElementById('shareButton').addEventListener('click', function() {
+    const url = "https://www.somihwabang.kr";
+    navigator.clipboard.writeText(url).then(() => {
+        const shareModal = new bootstrap.Modal(document.getElementById('shareModal'), {
+            keyboard: true
+        });
+        shareModal.show();
+    }).catch((error) => {
+        console.error('링크 복사에 실패했습니다:', error);
+    });
+});
+
+document.getElementById('shareButton').addEventListener('mouseover', function() {
+    document.getElementById('shareImage').src = './image/test_share_hover.png';
+});
+
+document.getElementById('shareButton').addEventListener('mouseout', function() {
+    document.getElementById('shareImage').src = './image/test_share.png';
+});
